@@ -18,14 +18,14 @@ public class AsIntStream implements IntStream {
     private final List<Integer> numbers;
 
     private AsIntStream(int[] values) {
-        numbers = new ArrayList < >();
+        numbers = new ArrayList<>();
         for (int number: values) {
             numbers.add(number);
         }
     }
 
     private AsIntStream(List < Integer > values) {
-        numbers = new ArrayList < >();
+        numbers = new ArrayList<>();
         numbers.addAll(values);
     }
 
@@ -41,10 +41,11 @@ public class AsIntStream implements IntStream {
     @Override
     public int max() {
         int maximum = 0;
-        for (int number: numbers)
+        for (int number: numbers){
             if (maximum < number) {
                 maximum = number;
             }
+        }
         return maximum;
     }
 
@@ -75,8 +76,8 @@ public class AsIntStream implements IntStream {
 
     @Override
     public IntStream filter(IntPredicate predicate) {
-        List<Integer> newNumbers = new ArrayList < >();
-        for (Integer number: numbers) {
+        List<Integer> newNumbers = new ArrayList<>();
+        for (int number: numbers) {
             if (predicate.test(number)) {
                 newNumbers.add(number);
             }
@@ -93,7 +94,7 @@ public class AsIntStream implements IntStream {
 
     @Override
     public IntStream map(IntUnaryOperator mapper) {
-        List<Integer> newNumbers = new ArrayList < >();
+        List<Integer> newNumbers = new ArrayList<>();
         for (int number: numbers) {
             newNumbers.add(mapper.apply(number));
         }
@@ -102,7 +103,7 @@ public class AsIntStream implements IntStream {
 
     @Override
     public IntStream flatMap(IntToIntStreamFunction func) {
-        List<Integer> newNumbers = new ArrayList < >();
+        List<Integer> newNumbers = new ArrayList<>();
         for (int number: numbers) {
             for (int streamNumber: func.applyAsIntStream(number).toArray()) {
                 newNumbers.add(streamNumber);
