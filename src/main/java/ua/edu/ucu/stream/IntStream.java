@@ -1,14 +1,19 @@
 package ua.edu.ucu.stream;
 
-import ua.edu.ucu.function.*;
+import ua.edu.ucu.function.IntBinaryOperator;
+import ua.edu.ucu.function.IntConsumer;
+import ua.edu.ucu.function.IntPredicate;
+import ua.edu.ucu.function.IntToIntStreamFunction;
+import ua.edu.ucu.function.IntUnaryOperator;
+
 
 public interface IntStream {
 
-    Double average();
+    double average();
 
-    Integer max();
+    int max();
 
-    Integer min();
+    int min();
     
     IntStream flatMap(IntToIntStreamFunction func);
 
@@ -22,7 +27,7 @@ public interface IntStream {
 
     int reduce(int identity, IntBinaryOperator op);
 
-    Integer sum();
+    int sum();
 
     int[] toArray();
 }
