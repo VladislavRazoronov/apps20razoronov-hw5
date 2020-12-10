@@ -24,7 +24,7 @@ public class AsIntStream implements IntStream {
         }
     }
 
-    private AsIntStream(List < Integer > values) {
+    private AsIntStream(List<Integer> values) {
         numbers = new ArrayList<>();
         numbers.addAll(values);
     }
@@ -41,7 +41,7 @@ public class AsIntStream implements IntStream {
     @Override
     public int max() {
         int maximum = 0;
-        for (int number: numbers){
+        for (int number: numbers) {
             if (maximum < number) {
                 maximum = number;
             }
